@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Config>
+	<MailAlerts>
+		<Enabled>1</Enabled>
+		<ConfigureSMTP>
+			<MailAddress>avisos@maincasa.com</MailAddress>
+			<Host>mail.maincasa.com</Host>
+			<Port>587</Port>
+			<Credentials>
+				<UserName>avisos@maincasa.com</UserName>
+				<Password>Qpr4g8?2</Password>
+			</Credentials>
+		</ConfigureSMTP>
+		<MailAddresses>eharo@maincasa.com</MailAddresses>
+	</MailAlerts>
+	<ConfigureCredentials>
+		<AWSCredentials>
+			<AccessKey>AKIAXXOR6G7YPAFMCQ52</AccessKey>
+			<SecretKey>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</SecretKey>
+			<Region></Region>
+			<UserArn></UserArn>
+			<RoleArn>arn:aws:iam::531405617136:role/mic-seller</RoleArn>
+			<RoleSessionName>selling-partner-api</RoleSessionName>
+			<Policy>{"Version":"2012-10-17","Statement":[{"Effect":"Allow","Action":"execute-api:Invoke","Resource":"arn:aws:execute-api:*:*:*"}]}</Policy>
+			<SessionDuration>3600</SessionDuration>
+		</AWSCredentials>
+		<LWACredentials>
+			<GrantType>refresh_token</GrantType>
+			<ClienID>amzn1.application-oa2-client.bc450feee1a84980a752bb9463b2451f</ClienID>
+			<ClientSecret>5fac01678bf7734dcfdd1624e970f35697dce290d72bbbd51599b9f1998cdfe4</ClientSecret>
+			<RefreshToken>Atzr|IwEBIH6rNGfBUZO8jqBlW620mxBMhBmy21BsZlA10qVHmQUFt9PcQC9iSjY71UZFfSpjOa3NLIYmugIU59ReUfcdEvLyKB3NIKQcevBeshSFncJQiwrVh8qrtN5sECuoS7Stxbp9hwMOCPs7AxH9IJUmS6cwQSa3nysm2bBVLfcv3KKcfmGRYiE_XfOFtnvpGipMtDdm7nwDkT0m72hsIlGBrFVz_t_V_y98W86bHlVPMiOi5sptdTW4DRTfV3KrUmhjKUK6vS1VoVGolvlOiKEw6ibtcmV-vS7kgC82prsTRdyRylONb9RnV07eKT1OU3GdNeU</RefreshToken>
+		</LWACredentials>
+	</ConfigureCredentials>
+</Config>
+

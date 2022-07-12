@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="MICShoppingModelStoreContainer" CdmEntityContainer="MICShoppingEntities">
+    <FunctionImportMapping FunctionImportName="GetAmazonFeed" FunctionName="MICShoppingModel.Store.GetAmazonFeed">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="MICShoppingModel.AmazonFeed">
+          <ScalarProperty Name="feed_product_type" ColumnName="feed_product_type" />
+          <ScalarProperty Name="item_sku" ColumnName="item_sku" />
+          <ScalarProperty Name="brand_name" ColumnName="brand_name" />
+          <ScalarProperty Name="external_product_id" ColumnName="external_product_id" />
+          <ScalarProperty Name="external_product_id_type" ColumnName="external_product_id_type" />
+          <ScalarProperty Name="item_name" ColumnName="item_name" />
+          <ScalarProperty Name="manufacturer" ColumnName="manufacturer" />
+          <ScalarProperty Name="recommended_browse_nodes" ColumnName="recommended_browse_nodes" />
+          <ScalarProperty Name="standard_price" ColumnName="standard_price" />
+          <ScalarProperty Name="quantity" ColumnName="quantity" />
+          <ScalarProperty Name="main_image_url" ColumnName="main_image_url" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetAmazonFeedPrice" FunctionName="MICShoppingModel.Store.GetAmazonFeedPrice">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="MICShoppingModel.AmazonFeedPrice">
+          <ScalarProperty Name="item_sku" ColumnName="item_sku" />
+          <ScalarProperty Name="standard_price" ColumnName="standard_price" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetAmazonFeedQty" FunctionName="MICShoppingModel.Store.GetAmazonFeedQty">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="MICShoppingModel.AmazonFeedQty">
+          <ScalarProperty Name="item_sku" ColumnName="item_sku" />
+          <ScalarProperty Name="quantity" ColumnName="quantity" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,105 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="MICShoppingModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <Function Name="GetAmazonFeed" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="GetAmazonFeedPrice" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="GetAmazonFeedQty" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <EntityContainer Name="MICShoppingModelStoreContainer" />
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="MICShoppingModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="MICShoppingEntities" annotation:LazyLoadingEnabled="true" >
+          <FunctionImport Name="GetAmazonFeed" ReturnType="Collection(MICShoppingModel.AmazonFeed)" />
+          <FunctionImport Name="GetAmazonFeedPrice" ReturnType="Collection(MICShoppingModel.AmazonFeedPrice)" />
+          <FunctionImport Name="GetAmazonFeedQty" ReturnType="Collection(MICShoppingModel.AmazonFeedQty)" />
+        </EntityContainer>
+        <ComplexType Name="AmazonFeed">
+          <Property Type="String" Name="feed_product_type" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="item_sku" Nullable="false" MaxLength="250" />
+          <Property Type="String" Name="brand_name" Nullable="true" />
+          <Property Type="String" Name="external_product_id" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="external_product_id_type" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="item_name" Nullable="false" MaxLength="537" />
+          <Property Type="String" Name="manufacturer" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="recommended_browse_nodes" Nullable="true" MaxLength="100" />
+          <Property Type="Decimal" Name="standard_price" Nullable="true" Precision="38" Scale="13" />
+          <Property Type="Int32" Name="quantity" Nullable="true" />
+          <Property Type="String" Name="main_image_url" Nullable="false" MaxLength="296" />
+        </ComplexType>
+        <ComplexType Name="AmazonFeedPrice">
+          <Property Type="String" Name="item_sku" Nullable="false" MaxLength="250" />
+          <Property Type="Decimal" Name="standard_price" Nullable="true" Precision="38" Scale="13" />
+        </ComplexType>
+        <ComplexType Name="AmazonFeedQty">
+          <Property Type="String" Name="item_sku" Nullable="false" MaxLength="250" />
+          <Property Type="Int32" Name="quantity" Nullable="true" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="MICShoppingModelStoreContainer" CdmEntityContainer="MICShoppingEntities" >
+          <FunctionImportMapping FunctionImportName="GetAmazonFeed" FunctionName="MICShoppingModel.Store.GetAmazonFeed">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="MICShoppingModel.AmazonFeed">
+                <ScalarProperty Name="feed_product_type" ColumnName="feed_product_type" />
+                <ScalarProperty Name="item_sku" ColumnName="item_sku" />
+                <ScalarProperty Name="brand_name" ColumnName="brand_name" />
+                <ScalarProperty Name="external_product_id" ColumnName="external_product_id" />
+                <ScalarProperty Name="external_product_id_type" ColumnName="external_product_id_type" />
+                <ScalarProperty Name="item_name" ColumnName="item_name" />
+                <ScalarProperty Name="manufacturer" ColumnName="manufacturer" />
+                <ScalarProperty Name="recommended_browse_nodes" ColumnName="recommended_browse_nodes" />
+                <ScalarProperty Name="standard_price" ColumnName="standard_price" />
+                <ScalarProperty Name="quantity" ColumnName="quantity" />
+                <ScalarProperty Name="main_image_url" ColumnName="main_image_url" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="GetAmazonFeedPrice" FunctionName="MICShoppingModel.Store.GetAmazonFeedPrice">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="MICShoppingModel.AmazonFeedPrice">
+                <ScalarProperty Name="item_sku" ColumnName="item_sku" />
+                <ScalarProperty Name="standard_price" ColumnName="standard_price" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="GetAmazonFeedQty" FunctionName="MICShoppingModel.Store.GetAmazonFeedQty">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="MICShoppingModel.AmazonFeedQty">
+                <ScalarProperty Name="item_sku" ColumnName="item_sku" />
+                <ScalarProperty Name="quantity" ColumnName="quantity" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

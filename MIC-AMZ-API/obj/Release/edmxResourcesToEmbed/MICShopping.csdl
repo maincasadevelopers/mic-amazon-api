@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="MICShoppingModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="MICShoppingEntities" annotation:LazyLoadingEnabled="true">
+    <FunctionImport Name="GetAmazonFeed" ReturnType="Collection(MICShoppingModel.AmazonFeed)" />
+    <FunctionImport Name="GetAmazonFeedPrice" ReturnType="Collection(MICShoppingModel.AmazonFeedPrice)" />
+    <FunctionImport Name="GetAmazonFeedQty" ReturnType="Collection(MICShoppingModel.AmazonFeedQty)" />
+  </EntityContainer>
+  <ComplexType Name="AmazonFeed">
+    <Property Type="String" Name="feed_product_type" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="item_sku" Nullable="false" MaxLength="250" />
+    <Property Type="String" Name="brand_name" Nullable="true" />
+    <Property Type="String" Name="external_product_id" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="external_product_id_type" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="item_name" Nullable="false" MaxLength="537" />
+    <Property Type="String" Name="manufacturer" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="recommended_browse_nodes" Nullable="true" MaxLength="100" />
+    <Property Type="Decimal" Name="standard_price" Nullable="true" Precision="38" Scale="13" />
+    <Property Type="Int32" Name="quantity" Nullable="true" />
+    <Property Type="String" Name="main_image_url" Nullable="false" MaxLength="296" />
+  </ComplexType>
+  <ComplexType Name="AmazonFeedPrice">
+    <Property Type="String" Name="item_sku" Nullable="false" MaxLength="250" />
+    <Property Type="Decimal" Name="standard_price" Nullable="true" Precision="38" Scale="13" />
+  </ComplexType>
+  <ComplexType Name="AmazonFeedQty">
+    <Property Type="String" Name="item_sku" Nullable="false" MaxLength="250" />
+    <Property Type="Int32" Name="quantity" Nullable="true" />
+  </ComplexType>
+</Schema>

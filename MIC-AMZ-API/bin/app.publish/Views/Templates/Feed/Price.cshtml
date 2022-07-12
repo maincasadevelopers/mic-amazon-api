@@ -1,0 +1,27 @@
+﻿@model List<MIC_AMZ_API.AmazonFeedPrice> 
+
+@{ 
+    Layout = null;
+    Context.Response.ContentType = "text/xml";
+    var messageID = 1;
+}
+
+<?xml version="1.0" encoding="utf-8" ?>
+<AmazonEnvelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="amzn-envelope.xsd">
+    <Header>
+        <DocumentVersion>1.01</DocumentVersion>
+        <MerchantIdentifier>A2Z2GREIOYN46V</MerchantIdentifier>
+    </Header>
+    <MessageType>Price</MessageType>
+    @foreach (var element in Model)
+    {
+        <Message>
+            <MessageID>@(messageID++)</MessageID>
+            <OperationType>Update</OperationType>
+            <Price>
+                <SKU>@element.item_sku</SKU>
+                <StandardPrice currency="MXN">@element.standard_price</StandardPrice>
+            </Price>
+        </Message>
+    }
+</AmazonEnvelope>
